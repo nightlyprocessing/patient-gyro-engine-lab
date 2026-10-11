@@ -1,10 +1,18 @@
 # Patient Gyro Engine Lab
 
-Isolated, cloud-only feasibility investigation of a GoldSrc-compatible browser runtime using Xash3D FWGS and Emscripten/WebAssembly.
+Isolated, cloud-only game-engine experiments for Patient Gyro.
+
+## Babylon.js prototype 0.1
+
+[Open the private cloud lab](https://patient-gyro-babylon-lab.nightlyprocessing.chatgpt.site). [Source and controls](experiments/babylon/README.md). [Verification status](docs/babylon-prototype.md).
+
+Implemented: an original food-truck courtyard, accessible kitchen, FPS and touch controls, a walking customer, spatial audio and two-player HTTPS sessions. Build and four backend tests pass. Browser visual QA and desktop/physical-phone performance remain unmeasured. This is a distinct experiment and does not validate Xash3D.
+
+## Xash3D investigation
 
 ## Current decision, 2026-10-11
 
-**HOLD: initial viability gate not passed. No migration recommendation and no playable prototype yet.**
+**HOLD: initial viability gate not passed. No migration recommendation and no Xash3D prototype.**
 
 Browser execution is demonstrably possible in the ecosystem. A reproducible, independently licensed, phone-ready Patient Gyro build has not been established. The audited browser fork has inaccessible source dependencies, engine/SDK licensing remains unresolved, and its multiplayer backend requires hosting capabilities beyond standard Sites hosting.
 
