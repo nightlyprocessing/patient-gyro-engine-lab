@@ -1,0 +1,13 @@
+{
+  "assessment_date": "2026-10-11",
+  "status": "not_run_initial_viability_gate_not_passed",
+  "runtime_build_sha": null,
+  "desktop": null,
+  "physical_android_phone": null,
+  "physical_iphone": null,
+  "two_player_session": null,
+  "npc_synchronization": null,
+  "positional_audio": null,
+  "migration_recommendation": "pending",
+  "note": "No FPS estimates, emulation, or source inspection are represented as device measurements."
+}
