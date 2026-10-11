@@ -1,0 +1,59 @@
+{
+  "assessment_date": "2026-10-11",
+  "environment": "cloud execution container",
+  "existing_project_modified": false,
+  "checkouts": [
+    {
+      "repository": "FWGS/xash3d-fwgs",
+      "sha": "fd0cd6afdda9dff94346af60884b99876001ca5f",
+      "observed_checkout": "success"
+    },
+    {
+      "repository": "swtkiptr/webxash3d-fwgs",
+      "sha": "1911262bb35ab360edcff701d95f5171fef482da",
+      "observed_checkout": "success"
+    },
+    {
+      "repository": "sealdev224/webxash3d-fwgs-cstrike",
+      "sha": "ed3ec1fc3781c5dedd1dd52c23b2d96bfed7584c",
+      "observed_checkout": "success"
+    }
+  ],
+  "modern_browser_fork": {
+    "toolchain_in_dockerfile": "emscripten/emsdk:4.0.23",
+    "engine_source_url": "https://github.com/yohimik/xash3d-fwgs",
+    "engine_pin": "f85aa0c8f7d46c27191132b44d872c8e331308de",
+    "sdk_source_url": "https://github.com/yohimik/hlsdk-portable.git",
+    "sdk_pin": "2073065d1359d3582f034617a097931f8595b10e",
+    "exact_submodule_checkout": "failed",
+    "failure": "could not read Username for https://github.com, followed by submodule clone failure. Public repository APIs also returned 404.",
+    "native_server_dependency": "github.com/yohimik/goxash3d-fwgs",
+    "multiplayer_source_inspection": "Pion WebRTC unordered data channels, zero retransmits, WSS/WS signaling and public UDP mux",
+    "reproducible_build": "not established"
+  },
+  "licensing_evidence": {
+    "engine_gpl_notice": "engine/common/net_encode.c and Documentation/gpl_copyright_header.h",
+    "valve_restricted_header": "common/entity_state.h",
+    "issue_63": "open",
+    "pr_2194": "open, partial resolution only",
+    "independent_game_distribution_clearance": "unresolved"
+  },
+  "repository_write": {
+    "repository": "nightlyprocessing/patient-gyro-engine-lab",
+    "discovery": "success",
+    "attempted_path": "README.md",
+    "http_status": 200,
+    "message": "Successful after user updated repository access",
+    "commit_created": true,
+    "initial_attempt": {
+      "http_status": 403,
+      "message": "Resource not accessible by integration",
+      "commit_created": false
+    },
+    "readme_commit_sha": "755b707ef71cf5584bf05eeb7bd790f1bd113474"
+  },
+  "runtime_built": false,
+  "desktop_performance_measured": false,
+  "phone_performance_measured": false,
+  "prototype_gate": "hold"
+}
