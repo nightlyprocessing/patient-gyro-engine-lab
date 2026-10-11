@@ -1,0 +1,13 @@
+{
+  "name": "patient-gyro-babylon-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-lab.mjs",
+    "validate": "node scripts/validate-artifact.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "db:generate": "drizzle-kit generate"
+  },
+  "dependencies": {"@babylonjs/core":"9.30.0"},
+  "devDependencies": {"esbuild":"0.28.2", "drizzle-kit":"0.31.10", "drizzle-orm":"0.45.2"}
+}

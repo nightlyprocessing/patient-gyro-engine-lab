@@ -1,9 +1,10 @@
 # Engine lab constraints
 
-- Work in this repository only. Do not modify, import, deploy over, or migrate the existing Patient Gyro application.
-- Keep builds, asset generation, hosting, and tests cloud-only.
-- Record observed evidence separately from inference and estimates.
-- Do not distribute Valve retail assets or treat wrapper MIT metadata as the engine/SDK license.
-- A playable prototype must actually use the assessed Xash3D/WebAssembly runtime. Do not substitute a Three.js demo and claim engine feasibility.
-- Keep desktop and phone performance null until measured. Emulated mobile results are not physical-phone results.
-- Resolve source, licensing, and cloud hosting gates before building/publishing the conditional prototype.
+- Work in this repository and its separate engine-lab Site only. Do not modify or migrate the original Patient Gyro application.
+- Keep builds, hosting, asset generation and tests cloud-only.
+- Distinguish implementation, server tests, browser observations and physical-device benchmarks.
+- Do not distribute Valve retail assets or confuse wrapper licensing with engine/SDK licensing.
+- The conditional Xash3D prototype must use Xash3D/WebAssembly and pass source/licensing/hosting gates.
+- The user subsequently authorized a distinct Babylon.js prototype in experiments/babylon. It does not establish Xash3D feasibility and does not depend on the Xash licensing gate.
+- Preserve private lab Site identity and audience unless the user requests a change.
+- Keep GPU desktop and physical-phone results unmeasured until actually tested. Emulated devices are not physical phones.

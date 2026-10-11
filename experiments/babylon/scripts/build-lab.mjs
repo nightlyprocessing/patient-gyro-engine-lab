@@ -1,0 +1,10 @@
+import {build} from 'esbuild';
+import {readFile,writeFile,mkdir,cp,rm} from 'node:fs/promises';
+await mkdir('.lab-build',{recursive:true});
+await build({entryPoints:['src/client.js'],outfile:'.lab-build/app.js',bundle:true,minify:true,format:'esm',target:'es2022',legalComments:'eof'});
+const js=await readFile('.lab-build/app.js','utf8'),html=await readFile('src/page.html','utf8'),notices=await readFile('THIRD_PARTY_NOTICES.md','utf8');
+await writeFile('.lab-build/entry.js',`import {api} from '../src/server.js';\nconst html=${JSON.stringify(html)},js=${JSON.stringify(js)},notices=${JSON.stringify(notices)};\nexport default {async fetch(request,env){try{const p=new URL(request.url).pathname;if(p.startsWith('/api/'))return await api(request,env);if(p==='/credits')return new Response(notices,{headers:{'Content-Type':'text/plain;charset=utf-8'}});if(p==='/app.js')return new Response(js,{headers:{'Content-Type':'text/javascript','Cache-Control':'no-cache'}});if(p==='/')return new Response(html,{headers:{'Content-Type':'text/html;charset=utf-8','Cache-Control':'no-cache'}});return new Response('Not found',{status:404});}catch(e){console.error('lab request failed',e.message);return Response.json({error:'The session service encountered an error. Try again.'},{status:500});}}};`);
+await build({entryPoints:['.lab-build/entry.js'],outfile:'worker/index.js',bundle:true,format:'esm',platform:'browser',target:'es2022',minify:true});
+await rm('dist',{recursive:true,force:true});await mkdir('dist/server',{recursive:true});await mkdir('dist/.openai',{recursive:true});
+await cp('worker/index.js','dist/server/index.js');await cp('.openai/hosting.json','dist/.openai/hosting.json');await cp('drizzle','dist/.openai/drizzle',{recursive:true});
+console.log('Built self-contained Worker with original procedural scene. Browser JS:',Buffer.byteLength(js),'bytes');
