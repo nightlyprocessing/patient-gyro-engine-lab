@@ -1,0 +1,75 @@
+{
+  "checked_at_utc": "2026-10-11T23:11:32.148652+00:00",
+  "recorded_source_urls_available": false,
+  "interpretation": "URL availability only. Does not prove recursive build reproducibility or license clearance.",
+  "results": [
+    {
+      "name": "official_engine",
+      "url": "https://api.github.com/repos/FWGS/xash3d-fwgs",
+      "required_for_recorded_build": false,
+      "http_status": 200,
+      "available": true,
+      "metadata": {
+        "full_name": "FWGS/xash3d-fwgs",
+        "default_branch": "master",
+        "archived": false,
+        "pushed_at": "2026-10-11T21:48:41Z"
+      }
+    },
+    {
+      "name": "browser_fork",
+      "url": "https://api.github.com/repos/sealdev224/webxash3d-fwgs-cstrike",
+      "required_for_recorded_build": false,
+      "http_status": 200,
+      "available": true,
+      "metadata": {
+        "full_name": "sealdev224/webxash3d-fwgs-cstrike",
+        "default_branch": "main",
+        "archived": false,
+        "pushed_at": "2026-05-23T21:20:52Z"
+      }
+    },
+    {
+      "name": "recorded_engine_source",
+      "url": "https://api.github.com/repos/yohimik/xash3d-fwgs",
+      "required_for_recorded_build": true,
+      "http_status": 404,
+      "available": false,
+      "error": "Public endpoint unavailable. This does not prove deletion."
+    },
+    {
+      "name": "recorded_sdk_source",
+      "url": "https://api.github.com/repos/yohimik/hlsdk-portable",
+      "required_for_recorded_build": true,
+      "http_status": 404,
+      "available": false,
+      "error": "Public endpoint unavailable. This does not prove deletion."
+    },
+    {
+      "name": "recorded_server_integration",
+      "url": "https://api.github.com/repos/yohimik/goxash3d-fwgs",
+      "required_for_recorded_build": true,
+      "http_status": 404,
+      "available": false,
+      "error": "Public endpoint unavailable. This does not prove deletion."
+    },
+    {
+      "name": "partial_engine_pin_recovery",
+      "url": "https://api.github.com/repos/FWGS/xash3d-fwgs/commits/f85aa0c8f7d46c27191132b44d872c8e331308de",
+      "required_for_recorded_build": false,
+      "http_status": 200,
+      "available": true,
+      "metadata": {
+        "sha": "f85aa0c8f7d46c27191132b44d872c8e331308de"
+      }
+    },
+    {
+      "name": "partial_sdk_pin_recovery",
+      "url": "https://api.github.com/repos/FWGS/hlsdk-portable/commits/2073065d1359d3582f034617a097931f8595b10e",
+      "required_for_recorded_build": false,
+      "http_status": 422,
+      "available": false,
+      "error": "Public endpoint unavailable. This does not prove deletion."
+    }
+  ]
+}
