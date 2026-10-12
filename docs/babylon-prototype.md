@@ -8,7 +8,7 @@ This is the separately authorized Babylon.js experiment. It does not establish X
 
 Implemented: original procedural food truck and urban courtyard, accessible kitchen, desktop FPS and touch controls, one walking NPC, Web Audio HRTF grill/generator/traffic sources, shared two-player rooms using Worker HTTPS snapshots and D1.
 
-Verification on 2026-10-11: ESM artifact validation and four SQLite backend tests passed. Private Sites deployment succeeded. Live authenticated API probe returned 401, so production API behavior has not been verified. Browser visual QA was unavailable. Desktop GPU and physical-phone performance remain unmeasured. Built-in metrics exports are observations from the browser running the scene, with device verification false.
+Verification on 2026-10-11: ESM artifact validation and four SQLite backend tests passed. Private Sites deployment succeeded. The live authenticated API check passed after correcting the authorization header: health confirmed D1 storage, two independent clients joined one room, a third client received 409, both clients received state on tick, and both sessions were removed afterward. This verifies deployed HTTP session behavior, not two rendered browser clients. Browser visual QA was unavailable. Desktop GPU and physical-phone performance remain unmeasured. Built-in metrics exports are observations from the browser running the scene, with device verification false.
 
 Multiplayer updates at 4 Hz, with client prediction and approximate reconciliation. This is prototype networking. Use another authorized tab to test two players while owner-private. External visitors would require a separate access change.
 
