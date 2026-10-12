@@ -22,8 +22,8 @@ function mat(name,color,emissive=false){const m=new StandardMaterial(name,scene)
 let mats={};
 function box(name,x,y,z,w,h,d,m,cast=false){const mesh=MeshBuilder.CreateBox(name,{width:w,height:h,depth:d},scene);mesh.position.set(x,y,z);mesh.material=m;mesh.receiveShadows=true;if(cast)shadow?.addShadowCaster(mesh);return mesh;}
 function cylinder(name,x,y,z,d,h,m){const mesh=MeshBuilder.CreateCylinder(name,{diameter:d,height:h,tessellation:16},scene);mesh.position.set(x,y,z);mesh.material=m;mesh.receiveShadows=true;return mesh;}
-function sign(text,x,y,z,w,h,color='#fff1cf',background='#214f43',rot=Math.PI/2){
- const texture=new DynamicTexture('sign '+text,{width:1024,height:256},scene,false);const c=texture.getContext();c.fillStyle=background;c.fillRect(0,0,1024,256);c.fillStyle=color;c.textAlign='center';c.textBaseline='middle';c.font='bold '+(text.length>18?'64':'95')+'px Georgia';c.fillText(text,512,132);texture.update();const material=mat('lettering '+text,'#ffffff');material.diffuseTexture=texture;material.emissiveColor=new Color3(.15,.13,.1);const p=MeshBuilder.CreatePlane('sign '+text,{width:w,height:h,sideOrientation:Mesh.DOUBLESIDE},scene);p.position.set(x,y,z);p.rotation.y=rot;p.material=material;return p;
+function sign(text,x,y,z,w,h,color='#fff1cf',background='#214f43',rot=-Math.PI/2){
+ const texture=new DynamicTexture('sign '+text,{width:1024,height:256},scene,false);const c=texture.getContext();c.fillStyle=background;c.fillRect(0,0,1024,256);c.fillStyle=color;c.textAlign='center';c.textBaseline='middle';c.font='bold '+(text.length>18?'64':'95')+'px Georgia';c.fillText(text,512,132);texture.update();const material=mat('lettering '+text,'#ffffff');material.diffuseTexture=texture;material.emissiveColor=new Color3(.15,.13,.1);const p=MeshBuilder.CreatePlane('sign '+text,{width:w,height:h,sideOrientation:Mesh.FRONTSIDE},scene);p.position.set(x,y,z);p.rotation.y=rot;p.material=material;return p;
 }
 function character(name,color){
  const root=new TransformNode(name,scene);const shirt=mat(name+' shirt',color),skin=mats.skin;
@@ -78,7 +78,7 @@ function makeScene(){
  // Office and apartment facades create an outdoor streetscape.
  for(let i=0;i<7;i++){const x=-12+i*4.4,h=9+(i%3)*2.4;const material=i%2?mats.brick:mats.concrete;box('apartment facade',x,h/2,-12.5,4.25,h,5,material);box('roof cornice',x,h,-9.97,4.35,.28,.3,mats.cream);
   for(let row=0;row<Math.floor(h/2.3);row++)for(let col=0;col<3;col++){const wx=x+(col-1)*1.1,wy=1.4+row*2.2;box('window frame',wx,wy,-9.96,.87,1.3,.06,mats.cream);box('apartment glass',wx,wy,-9.91,.69,1.12,.05,(row+col+i)%3?mats.glass:mats.window);box('window sill',wx,wy-.64,-9.82,.95,.08,.23,mats.cream);}
-  if(i===4)sign('CORNER COFFEE',x,1.08,-9.83,3.9,.6,'#ffe7b7','#6a4637',0);
+  if(i===4)sign('CORNER COFFEE',x,1.08,-9.83,3.9,.6,'#ffe7b7','#6a4637',Math.PI);
  }
  for(let i=0;i<4;i++){const x=-10+i*7.3,h=13+(i%2)*5;box('office building',x,h/2,13.5,7,h,7,mats.concrete);for(let row=0;row<6;row++)for(let col=0;col<5;col++){box('office glass',x+(col-2)*1.22,1.5+row*2.2,9.97,1.04,1.6,.04,(row+col)%4?mats.glass:mats.window);}box('office band',x,3.0,9.9,7.1,.28,.1,mats.green);}
  for(let i=0;i<3;i++)box('side building',-13,6+i*2,-6+i*7,6,12+i*4,6,mats.brick);
